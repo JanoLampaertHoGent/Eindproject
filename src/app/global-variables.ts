@@ -1,3 +1,3 @@
 export class GlobalVariables {
-    public static APIBaseURL:string = "http://localhost:8081";
+    public static APIBaseURL:string = "https://janolampaerthogent-eindproject-backend.glitch.me";
 }
