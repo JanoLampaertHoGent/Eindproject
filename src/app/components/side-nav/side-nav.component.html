@@ -1,0 +1,23 @@
+<mat-sidenav-container style="height: calc(100vh - 64px)">
+    <mat-sidenav #sidenav mode="side" opened [fixedInViewport]="false" style="width: 20rem;">
+        <mat-nav-list>
+            <a routerLink="notes" routerLinkActive="active" mat-list-item>Notities</a>
+            <a routerLink="categories" routerLinkActive="active" mat-list-item>Categoriën</a>
+            <a routerLink="users" routerLinkActive="active" mat-list-item>Gebruikers</a>
+            <a routerLink="trash" routerLinkActive="active" mat-list-item>Prullenmand</a>
+        </mat-nav-list>
+        <mat-divider></mat-divider>
+        
+        <mat-form-field>
+            <mat-label>Gebruiker</mat-label>
+            <mat-select (selectionChange)="setSelectedUser($event)">
+                <mat-option [value]="0">Geen gebruiker...</mat-option>
+                <mat-option *ngFor="let user of users" [value]="user.id">{{ user.name }} {{ user.firstName }}</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

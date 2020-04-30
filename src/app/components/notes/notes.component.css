@@ -1,0 +1,21 @@
+.cardContainer {
+    column-count: 4;
+    column-gap: 0.25rem;
+}
+
+.cardContainer mat-card {
+    break-inside: avoid;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    width: calc(100% - 0.5rem - 32px);
+}
+
+/* mat-card:hover mat-card-actions{
+    display: block !important;
+} */
+
+mat-chip {
+    font-size: 12px;
+    min-height: fit-content;
+    padding: 9px 7px;
+}

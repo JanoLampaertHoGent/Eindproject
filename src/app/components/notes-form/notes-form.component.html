@@ -1,0 +1,21 @@
+<h1 mat-dialog-title>Notitie {{ mode }}</h1>
+<div mat-dialog-content>
+    <mat-form-field class="w-100">
+        <mat-label>Titel</mat-label>
+        <input type="text" matInput [(ngModel)]="data.title" />
+    </mat-form-field>
+    <mat-form-field class="w-100">
+        <mat-label>Categoriën</mat-label>
+        <mat-select [(ngModel)]="data.categories" multiple>
+            <mat-option *ngFor="let category of categories" [value]="category.id" [ngStyle]="{ 'background-color': category.color }">{{ category.name }}</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field class="w-100">
+        <mat-label>Inhoud</mat-label>
+        <textarea rows="10" matInput [(ngModel)]="data.content"></textarea>
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Opslaan</button>
+    <button mat-button (click)="onNoClick()" color="warn">Annuleren</button>
+</div>

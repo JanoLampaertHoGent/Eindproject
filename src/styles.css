@@ -2,3 +2,13 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.w-25 { width: calc(25% - 32px - 0.5rem); }
+.w-100 { width: 100%; }
+.float-left { float: left; }
+.text-right { text-align: right; }
+.m-025 { margin: 0.25rem; }
+.m-1 { margin: 1rem; }
+.ml-1 { margin-left: 1rem !important; }
+.fixed-bottom-right { position: fixed; bottom: 0; right: 0; }
+.cursor-pointer { cursor: pointer; }
+.display-none { display: none !important; }

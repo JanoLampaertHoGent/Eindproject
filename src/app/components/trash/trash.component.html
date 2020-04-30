@@ -1,0 +1,108 @@
+<mat-tab-group>
+  <mat-tab label="Notities">
+    <table mat-table [dataSource]="dataSourceNotes" class="w-100">
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>Id</th>
+        <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="user">
+        <th mat-header-cell *matHeaderCellDef>Gebruiker</th>
+        <td mat-cell *matCellDef="let element">{{ element.name }} {{ element.firstName }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef>Titel</th>
+        <td mat-cell *matCellDef="let element">{{ element.title }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Acties</th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-button color="primary" (click)="resetNote(element.id)">
+            Terugzetten
+          </button>
+          <button mat-button color="warn" (click)="deleteNote(element.id)">
+            Definitief verwijderen
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumnsNotes"></tr>
+      <tr
+        mat-row
+        *matRowDef="let row; columns: displayedColumnsNotes"
+      ></tr>
+    </table>
+  </mat-tab>
+
+  <mat-tab label="Categorieën">
+    <table mat-table [dataSource]="dataSourceCategories" class="w-100">
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>Id</th>
+        <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Naam</th>
+        <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Acties</th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-button color="primary" (click)="resetCategory(element.id)">
+            Terugzetten
+          </button>
+          <button mat-button color="warn" (click)="deleteCategory(element.id)">
+            Definitief verwijderen
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumnsCategories"></tr>
+      <tr
+        mat-row
+        *matRowDef="let row; columns: displayedColumnsCategories"
+        [ngStyle]="{ 'background-color': row.color }"
+      ></tr>
+    </table>
+  </mat-tab>
+
+  <mat-tab label="Gebruikers">
+    <table mat-table [dataSource]="dataSourceUsers" class="w-100">
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>Id</th>
+        <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef>Naam</th>
+        <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="firstName">
+        <th mat-header-cell *matHeaderCellDef>Voornaam</th>
+        <td mat-cell *matCellDef="let element">{{ element.firstName }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Acties</th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-button color="primary" (click)="resetUser(element.id)">
+            Terugzetten
+          </button>
+          <button mat-button color="warn" (click)="deleteUser(element.id)">
+            Definitief verwijderen
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumnsUsers"></tr>
+      <tr
+        mat-row
+        *matRowDef="let row; columns: displayedColumnsUsers"
+      ></tr>
+    </table>
+  </mat-tab>
+</mat-tab-group>
